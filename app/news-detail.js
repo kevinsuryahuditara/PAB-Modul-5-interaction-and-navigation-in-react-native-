@@ -1,22 +1,22 @@
 import { Heading, Text, Center, Image, Box } from "@gluestack-ui/themed";
 import { Header } from "../components";
 import { useLocalSearchParams } from "expo-router";
+import { ScrollView } from "react-native";
 
 const NewsDetail = () => {
   const params = useLocalSearchParams();
   return (
-    <>
+    <ScrollView>
       <Header title={"News"} withBack={true} />
       <Image
         source={{ uri: params.image }}
         w="100%"
-        h="25%"
+        h="20%"
         alt="Image Data"
-      />
-      
+      />  
       <Box p={10}>
         <Text textAlign="left">{params.date}</Text>
-        <Heading>Dorong Pengembangan UMKM, IT Telkom Surabaya Gandeng UD Rozi dalam Pembuatan Website</Heading>
+        <Heading textAlign="left">{params.title}</Heading>
         <Box
           style={{
             width: '100%', // Panjang garis horizontal
@@ -27,7 +27,7 @@ const NewsDetail = () => {
         />
         <Text textAlign="left">{params.content}</Text>
       </Box>
-    </>
+    </ScrollView>
   );
 };
 
